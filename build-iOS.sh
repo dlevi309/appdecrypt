@@ -21,6 +21,10 @@ function build() {
     -Xcc "-mios-version-min=10.0" \
     -Xcc "-miphoneos-version-min=11.0"
 
+  mkdir built
+  cp .build/release/appdecrypt built/appdecrypt
+  ldid -Sent.xml built/appdecrypt
+
   END=$(date +%s)
   TIME=$(($END - $START))
   echo "build in $TIME seconds"

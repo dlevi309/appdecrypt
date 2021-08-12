@@ -31,7 +31,7 @@ class Dump {
         if !fileManager.fileExists(atPath: targetUrl) {
             do{
                 try fileManager.copyItem(atPath: sourceUrl, toPath: targetUrl)
-                consoleIO.writeMessage("Success to copy file.")
+                consoleIO.writeMessage("Successfully copied file.")
             }catch{
                 consoleIO.writeMessage("Failed to copy file.", to: .error)
             }
@@ -66,7 +66,7 @@ class Dump {
                             }
                             munmap(base, base_size)
                             munmap(dupe, dupe_size)
-                            consoleIO.writeMessage("Dump Success")
+                            consoleIO.writeMessage("Successfully dumped")
                             DispatchQueue.main.async {
                                 NotificationCenter.default.post(name: NSNotification.Name("stop"), object: nil)
                             }
@@ -77,11 +77,11 @@ class Dump {
                         }
                     } else {
                         munmap(base, base_size)
-                        consoleIO.writeMessage("Read Dupe Fail", to: .error)
+                        consoleIO.writeMessage("Failed to read duplicate", to: .error)
                     }
                 }
             } else {
-                consoleIO.writeMessage("Read Base Fail", to: .error)
+                consoleIO.writeMessage("Failed to read base", to: .error)
             }
         }
     }

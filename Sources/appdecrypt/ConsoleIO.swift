@@ -28,21 +28,7 @@ class ConsoleIO {
     
     func printUsage() {
         writeMessage("""
-        Version \(version)
-        
-        appdecrypt is a tool to make decrypt application encrypted binaries on macOS when SIP-enabled.
-        
-        Examples:
-            appdecrypt /Applicaiton/Test.app/Wrapper/Test.app/Test /Users/admin/Desktop/Test
-        
-        USAGE: appdecrypt encryptMachO_Path decryptMachO_Path
-        
-        ARGUMENTS:
-          <encryptMachO_Path>     The encrypt machO file path.
-          <decryptMachO_Path>     The path output decrypt machO file.
-        
-        OPTIONS:
-          -h, --help              Show help information.
+        Usage: appdecrypt <executable> <out_path>
         """)
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: NSNotification.Name("stop"), object: nil)
